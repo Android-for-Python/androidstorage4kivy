@@ -5,6 +5,8 @@ Android Shared Storage 4 Kivy
 
 ## Overview
 
+To use, add `androidstorage4kivy` to Buildozer requirements, see the examples.
+
 ### Programming Model
 
 The methods in this Python package provide a consistent file storage model and api across Android versions >= 5. As a result the model implements constraints that may not exist on some older versions of Android. 
