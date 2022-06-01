@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/androidstorage4kivy/__init__.py
+src/androidstorage4kivy/chooser.py
+src/androidstorage4kivy/sharedstorage.py
+src/androidstorage4kivy/sharesheet.py
+src/androidstorage4kivy.egg-info/PKG-INFO
+src/androidstorage4kivy.egg-info/SOURCES.txt
+src/androidstorage4kivy.egg-info/dependency_links.txt
+src/androidstorage4kivy.egg-info/top_level.txt
