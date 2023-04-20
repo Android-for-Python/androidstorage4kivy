@@ -39,15 +39,15 @@ class ShareSheet():
             Logger.warning('ShareSheet().share_plain_text()')
             Logger.warning(str(e))
 
-    def share_file(self, shared_file, app = None):
+    def share_file(self, shared_file, app=None, text=None):
         try:
             self._cleanup_legacy_uri_list()
-            if shared_file == None:
+            if shared_file is None:
                 return
             uri = self._legacy_create_uri(shared_file)
-            if uri == None:
+            if uri is None:
                 return
-            cr =  mActivity.getContentResolver()
+            cr = mActivity.getContentResolver()
             self.MIME = cr.getType(uri)
             self.parcelable = cast('android.os.Parcelable', uri)  
             self.send = Intent()
@@ -55,11 +55,13 @@ class ShareSheet():
             self.send.setType(self.MIME)
             self.send.putExtra(Intent.EXTRA_STREAM, self.parcelable)
             self.send.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            if text:
+                self.send.putExtra(Intent.EXTRA_TEXT, text)
             if app:
                 self.send.setPackage(app)
                 mActivity.startActivity(self.send)
             else:
-                self.choose = Intent.createChooser(self.send,None)
+                self.choose = Intent.createChooser(self.send, None)
                 mActivity.startActivity(self.choose)
         except Exception as e:
             Logger.warning('ShareSheet().share_file()')
