@@ -56,7 +56,7 @@ class ShareSheet():
             self.send.putExtra(Intent.EXTRA_STREAM, self.parcelable)
             self.send.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
             if text:
-                self.send.putExtra(Intent.EXTRA_TEXT, text)
+                self.send.putExtra(Intent.EXTRA_TEXT, JString(text))
             if app:
                 self.send.setPackage(app)
                 mActivity.startActivity(self.send)
