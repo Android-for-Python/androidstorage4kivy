@@ -54,7 +54,7 @@ The SharedStorage Class provides these methods: `copy_to_shared()`, `copy_from_s
 
 ### API  
 
-```
+```python
  def copy_to_shared(private_file, collection = None, filepath = None)
      returns shared_file or None
 
@@ -71,7 +71,27 @@ The SharedStorage Class provides these methods: `copy_to_shared()`, `copy_from_s
  
   `filepath`  - shared storage filepath including file name, but not including 'Collection/app-Title'.
 
-  `shared_file`  - A reference to a file in shared storage returned by `copy_to_shared()`. Or a string  e.g. '<collection>/<app-Title>/sub_dir/name.ext'. 
+  `shared_file`  - A reference to a file in shared storage returned by `copy_to_shared()`. Or a string  e.g. '<collection>/<app-Title>/sub_dir/name.ext'.
+
+There are also three utility functions:
+
+```python
+
+    def get_cache_dir(self):
+    	returns file path or None
+
+    def get_app_title(self):
+    	returns a string
+
+    def get_file_MIME_type(self,file_name):	
+    	returns a string
+```
+
+`cache_dir` is https://github.com/Android-for-Python/Android-for-Python-Users#app-cache-directory with the directory `"FromSharedStorage"` appended.
+
+`app_title` is used in the shared storage path
+
+`MIME_type` is used to determine in which collection a file type belongs.
 
 
 ### Implementation Details
@@ -92,7 +112,7 @@ Enables sending either plain_text, a file, or a file list to another app. The ta
 
 ### API
 
-```
+```python
     def share_plain_text(self, plain_text, app = None):
     
     def share_file(self, shared_file, app = None):
@@ -122,7 +142,7 @@ The Chooser class enables opening an Android Chooser, the chosen 'shared file' o
 
 Instantiate the class with a callback method as the argument.
 
-```
+```python
        self.chooser = Chooser(self.chooser_callback)
 ```
 
@@ -132,11 +152,11 @@ The Chooser UI is opened with `choose_content()`, this can optionally be filtere
        self.chooser.choose_content('video/*')
 ```
 The selected files are reported by the app's callback method as a list. The default is one file in the list. To enable selecting multiple files, set `multiple = True`.
-```
+```python
        self.chooser.choose_content('image/*', multiple = True)
 ```
 
-```
+```python
    def chooser_callback(self, shared_file_list):
        self.private_files = []
        ss = SharedStorage()
