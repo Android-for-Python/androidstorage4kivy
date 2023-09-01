@@ -148,7 +148,7 @@ Instantiate the class with a callback method as the argument.
 
 The Chooser UI is opened with `choose_content()`, this can optionally be filtered by MIME type. The Android Chooser recognizes MIME wildcards such as 'image/\*' or '\*/\*' but not '\*/jpg'.  
 
-```
+```python
        self.chooser.choose_content('video/*')
 ```
 The selected files are reported by the app's callback method as a list. The default is one file in the list. To enable selecting multiple files, set `multiple = True`.
