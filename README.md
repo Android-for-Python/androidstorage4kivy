@@ -91,7 +91,7 @@ There are also three utility functions:
 
 `app_title` is used in the shared storage path
 
-`MIME_type` is used to determine in which collection a file belongs, it is detremined based on the file externsion.
+`MIME_type` is used to determine in which collection a file belongs, it is determined based on the file externsion.
 
 
 ### Implementation Details
