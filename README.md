@@ -34,7 +34,10 @@ External storage must be availaible, this may not be true on older devices with 
 ### Permissions
 
  - Android < 10 : WRITE_EXTERNAL_STORAGE 
- - Android >= 10 : READ_EXTERNAL_STORAGE required only to copy or list a 'shared file' not owned by this app. Except in Downloads where this permission does not apply.
+ - Android >= 10 :
+   To copy a 'shared file' not owned by this app. Except in Downloads where this permission does not apply.
+   android.api < 33 : READ_EXTERNAL_STORAGE 
+   android.api >= 33 : READ_MEDIA_IMAGES, READ_MEDIA_VIDEO, READ_MEDIA_AUDIO 
 
 ### Examples
 
@@ -102,7 +105,9 @@ Some MIME classifications (on which Collection classification is based) have cha
 
 A share receive of a large file (such as an mp4) is slow on Android < 10. To improve performance of this case, copy the `faster_copy` directory in [share_receive_example](https://github.com/Android-for-Python/share_receive_example) to your app and in buildozer.spec add `android.add_src = faster_copy`.
 
-The Downloads directory is a special case. In this directory Android only allows access to files downloaded by the current app. The traditional common usage of Downloads as a shared pool of files is not possible. 
+The Downloads directory is a special case. In this directory Android only allows access to files downloaded by the current app. The traditional common usage of Downloads as a shared pool of files is not possible.
+
+Some users want to use the original shared storage filepath, not the filepath of a copy. This is possible with the Mediastore DATA column. **However** this column is [deprecated](https://developer.android.com/reference/android/provider/MediaStore.MediaColumns#DATA), so from the point of view of this package the original shared storage filepath (DATA column) will in the long term be unsupportable.
 
 ## ShareSheet Class
 
