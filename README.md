@@ -34,10 +34,8 @@ External storage must be availaible, this may not be true on older devices with 
 ### Permissions
 
  - Android < 10 : WRITE_EXTERNAL_STORAGE 
- - Android >= 10 :
-   To copy a 'shared file' not owned by this app. Except in Downloads where this permission does not apply.
-   android.api < 33 : READ_EXTERNAL_STORAGE 
-   android.api >= 33 : READ_MEDIA_IMAGES, READ_MEDIA_VIDEO, READ_MEDIA_AUDIO 
+ - Android >= 10, android.api < 33 : READ_EXTERNAL_STORAGE 
+ - Android >= 10, android.api >= 33 : READ_MEDIA_IMAGES, READ_MEDIA_VIDEO, READ_MEDIA_AUDIO 
 
 ### Examples
 
