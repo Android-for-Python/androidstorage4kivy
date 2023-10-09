@@ -139,7 +139,9 @@ The ShareSheet class should probably be persistent since destroying the class de
 
 ### Overview
 
-The Chooser class enables opening an Android Chooser, the chosen 'shared file' or 'shared files' is returned in a callback. 
+The Chooser class enables opening an Android Chooser, the chosen 'shared file' or 'shared files' is returned in a callback.
+
+As an alternative to the Android Chooser, you may want to implement your own custom picker. There is an example of this in the [music_service_example](https://github.com/Android-for-Python/music_service_example). That picker queries the Mediastore and hirearchicaly organizes music by genre, album, and track; displaying album art. The same approach can be used to custom pick from other media. 
 
 ### API
 
