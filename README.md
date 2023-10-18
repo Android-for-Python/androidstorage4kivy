@@ -37,7 +37,7 @@ External storage must be availaible, this may not be true on older devices with 
  - Android >= 10, android.api < 33 : READ_EXTERNAL_STORAGE 
  - Android >= 10, android.api >= 33 : READ_MEDIA_IMAGES, READ_MEDIA_VIDEO, READ_MEDIA_AUDIO, READ_EXTERNAL_STORAGE
 
- That Android >= 10 READ_EXTERNAL_STORAGE is for reading from the documents collection.
+ That Android >= 10, android.api >= 33 READ_EXTERNAL_STORAGE is for reading from the documents collection.
 
 ### Examples
 
