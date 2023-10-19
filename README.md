@@ -33,7 +33,7 @@ External storage must be availaible, this may not be true on older devices with 
 
 On modern Android devices, and perhaps on older ones (which might alternatively use a *file* uri), this package depends on the Android Java [Uri class](https://developer.android.com/reference/android/net/Uri) to represent a *content* uri. In particular two methods in this class may be useful [toString()](https://developer.android.com/reference/android/net/Uri#toString()), and [parse()](https://developer.android.com/reference/android/net/Uri#parse(java.lang.String)). Read that documentation.
 
-In Python, use like this:
+In Python, use these like this:
 ```
 content_uri_string = java_uri_class.toString()
 ```
