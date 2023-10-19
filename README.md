@@ -43,7 +43,7 @@ Uri = autoclass('android.net.Uri')
 java_uri_class = Uri.parse(content_uri_string)
 ```
 
-The [music_service_example](https://github.com/Android-for-Python/music_service_example) uses these methods to pass uris between app and service. Because memory references cannot be passed in this case.
+The [music_service_example](https://github.com/Android-for-Python/music_service_example) uses these methods to pass uris between app and service. Because memory references cannot be passed in this case. In addition in that case `oscpy` requires 'utf8' encoding.
 
 
 ### Permissions
