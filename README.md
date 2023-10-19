@@ -31,6 +31,21 @@ On Android a 'shared file' is usually (but not always) implemented as an `'andro
 
 External storage must be availaible, this may not be true on older devices with a removable sdcard.
 
+On modern Android devices, and perhaps on older ones (which might alternatively use a *file* uri), this package depends on the Android Java [Uri class](https://developer.android.com/reference/android/net/Uri) to represent a *content* uri. In particular two methods in this class may be useful [toString()](https://developer.android.com/reference/android/net/Uri#toString()), and [parse()](https://developer.android.com/reference/android/net/Uri#parse(java.lang.String)). Read that documentation.
+
+Use like this:
+```
+content_uri_string = java_uri_class.toString()
+```
+```
+from jnius import autoclass
+Uri = autoclass('android.net.Uri')
+java_uri_class = Uri.parse(content_uri_string)
+```
+
+The [music_service_example](https://github.com/Android-for-Python/music_service_example) uses these methods to pass uris between app and service. Because memory references cannot be passed in this case.
+
+
 ### Permissions
 
  - Android < 10 : WRITE_EXTERNAL_STORAGE 
