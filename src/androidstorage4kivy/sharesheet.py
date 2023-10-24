@@ -65,6 +65,24 @@ class ShareSheet():
             Logger.warning('ShareSheet().share_file()')
             Logger.warning(str(e))
 
+    def view_file(self, shared_file):
+        try:
+            self._cleanup_legacy_uri_list()
+            if shared_file == None:
+                return
+            uri = self._legacy_create_uri(shared_file)
+            if uri == None:
+                return
+            cr =  mActivity.getContentResolver()
+            self.MIME = cr.getType(uri)
+            self.send = Intent()
+            self.send.setAction(Intent.ACTION_VIEW)
+            self.send.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            self.send.setDataAndType(uri, self.MIME)
+            mActivity.startActivity(self.send)
+        except Exception as e:
+            Logger.warning('ShareSheet().view_file()')
+            Logger.warning(str(e))
 
     def share_file_list(self, shared_file_list, app = None):
         try:
