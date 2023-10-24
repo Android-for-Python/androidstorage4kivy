@@ -21,7 +21,7 @@ This package contains three classes, `SharedStorage`, `ShareSheet`, and `Chooser
 
  - `SharedStorage` allows copying files to and from shared storage with the `copy_to_shared()`, `copy_from_shared()`, and `delete_shared()` methods.
 
- - `ShareSheet` allows sending plain text, or a 'shared file' to another app. Using the `share_plain_text()`, `share_file()`, and `share_file_list()` methods, these create an Android ShareSheet used to select the target app.
+ - `ShareSheet` allows sending plain text, or a 'shared file' to another app. Using the `share_plain_text()`, `share_file()`, and `share_file_list()` methods, these create an Android ShareSheet used to select the target app. You can also call the `view_file()` method to open a 'shared file' in another app - Android will try to use default application available for that specific file type.
 
  - `Chooser` allows selecting a 'shared file' using the Android Chooser UI. The callback returns a list of one or more shared files.
 
@@ -138,6 +138,8 @@ Enables sending either plain_text, a file, or a file list to another app. The ta
     def share_file(self, shared_file, app = None):
 
     def share_file_list(self, shared_file_list, app = None):
+
+    def view_file(self, shared_file):
 ```
 
 `plain_text` is a string.
