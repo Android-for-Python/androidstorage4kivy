@@ -3,6 +3,8 @@ Android Shared Storage 4 Kivy
 
 *A package for accessing Android Shared Storage.*
 
+**2023-11-13 This repository is archived.**
+
 ## Overview
 
 To use, add `androidstorage4kivy` to Buildozer requirements, see the examples.
